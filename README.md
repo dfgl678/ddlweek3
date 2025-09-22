@@ -3,7 +3,7 @@ Training GPT2 Chinese from zero to hero
 
 1.Description:
 ---
-从头训练一个82M的中文GPT2模型，使用BERT的Tokenizer.中文语料采用龙族小说的部分章节，大小约6M。训练21个周期，batchsize=4。最终可以续写10句以上的龙族小说。
+从头训练一个82M的中文GPT2模型，使用BERT的Tokenizer.中文语料采用龙族小说的部分章节，大小约6M。训练21个周期，batchsize=4。最终可以续写10句以上的龙族小说。此处仅上传部分改动/重要文件。其他文件参考https://github.com/lvfinn/chinese-GPT2-start-from-zero。
 
 2.Start:
 ----
@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 (2)***dataset***
 
-准备中文语料（以txt.形式），放置在./data/文件夹下，使用代码将.txt文件更改为input.json文件
+准备中文语料（以txt.形式），放置在./data/文件夹下，在clr_ctrl.py中添加代码将.txt文件更改为input.json文件
 
 按照参考样例./train.json更改input.json文件格式,由于数据集内容为原始的小说内容，包含着大量的非法字符和json读取不支持的控制字符，因此我们对原始数据集文件进行处理，去除其中非法字符，生成预处理好的数据集文件train.json。
 ```bash
@@ -86,7 +86,7 @@ python generate.py   --device 1   --length 1000   --tokenizer_path cache/vocab_s
 
 3.Result
 --
-最终会生成10个文字样本，存储在./mnt/目录下，其中之一如下：
+最终会生成10个文字样本，存储在samples中，其中之一如下：
 
 ======================================== SAMPLE 1 ========================================
 
